@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Pet from "./Pet";
+import useBreedList from "./useBreeList";
 // useEffect is mostly used for retrieving/sending data from/to an API
 
 const ANIMALS = ["bird", "cat", "dog", "rabbit", "reptile"];
@@ -9,7 +10,7 @@ const SearchParams = () => {
   const [animal, setAnimal] = useState("");
   const [breed, setBreed] = useState("");
   const [pets, setPets] = useState([]);
-  const breeds = [];
+  const [breeds] = useBreedList(animal);
 
   // the empty array is so that the function runs only once when the page loads initially
   // apart from that is only runs when called
